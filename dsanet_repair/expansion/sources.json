@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "retrieved_on": "2026-09-23",
+  "status": "source-inspected adaptations; not original-paper reproductions or proven novel contributions",
+  "sources": [
+    {
+      "name": "DSANet",
+      "repository": "https://github.com/lessiYin/DSANet",
+      "commit": "eb335b23fd6f01810bcd176c948c10348764a504",
+      "use": "Frozen trained anchor, native SGNM prototype aggregation, official evaluation.",
+      "runtime": true,
+      "local_modifications": "Existing local option/train/dataset changes are retained, not newly introduced by expansion. Exact runtime is SHA256-recorded, not identified by upstream commit alone.",
+      "license_file": "licenses/DSANet-MIT.txt"
+    },
+    {
+      "name": "DiGIT",
+      "title": "DiGIT: Multi-Dilated Gated Encoder and Central-Adjacent Region Integrated Decoder for Temporal Action Detection Transformer",
+      "venue": "CVPR 2025",
+      "paper": "https://arxiv.org/abs/2505.05711",
+      "repository": "https://github.com/Dotori-HJ/DiGIT",
+      "commit": "bed9433e8c23fdd6e377af7b3091c92a87429bc3",
+      "source_file": "models/digit/modules.py",
+      "source_symbol": "GatedConv",
+      "adapted_file": "dsanet_repair/expansion/temporal.py",
+      "variant": "p4-dilated-context",
+      "change": "Single identity-initialized masked multi-dilated gated residual per independent VAD head. No supervised proposal decoder, custom CUDA, or full DiGIT reproduction.",
+      "runtime_import_from_official_repository": false,
+      "license_file": "licenses/DiGIT-Apache-2.0.txt"
+    },
+    {
+      "name": "ASOT",
+      "title": "Temporally Consistent Unbalanced Optimal Transport for Unsupervised Action Segmentation",
+      "venue": "CVPR 2024",
+      "paper": "https://arxiv.org/abs/2404.01518",
+      "repository": "https://github.com/mingu6/action_seg_ot",
+      "commit": "0c4c86b1037eb4c3e262197aeee115b31e220c9d",
+      "source_file": "src/asot.py",
+      "adapted_file": "dsanet_repair/expansion/transport.py",
+      "variant": "p5-structured-transport",
+      "change": "Log-domain structural soft targets with video-allowed classes, background, anchor-derived nonuniform marginal, and normal-residual-gated temporal edges; training only. Not the official unsupervised clustering pipeline.",
+      "runtime_import_from_official_repository": false,
+      "license_file": "licenses/ASOT-MIT.txt"
+    },
+    {
+      "name": "ConsMTL",
+      "title": "Towards Consistent Multi-Task Learning: Unlocking the Potential of Task-Specific Parameters",
+      "venue": "CVPR 2025",
+      "paper": "https://openaccess.thecvf.com/content/CVPR2025/papers/Qin_Towards_Consistent_Multi-Task_Learning_Unlocking_the_Potential_of_Task-Specific_Parameters_CVPR_2025_paper.pdf",
+      "repository": "https://github.com/jianke0604/MTLlib",
+      "commit": "e64779272aade3b89e8ad5437ec1e33d1b3bdf5e",
+      "source_file": "methods/weight_methods.py",
+      "source_symbol": "ConsMTL",
+      "adapted_file": "dsanet_repair/expansion/optimization.py",
+      "variant": "p6-primary-aligned",
+      "change": "Primary-directed semantic-head mixed derivative with detached binary reference and capped extra head gradient; does not implement symmetric bargaining or reproduce full ConsMTL.",
+      "runtime_import_from_official_repository": false,
+      "license_file": "licenses/ConsMTL-MIT.txt"
+    },
+    {
+      "name": "PCGrad",
+      "title": "Gradient Surgery for Multi-Task Learning",
+      "venue": "NeurIPS 2020",
+      "paper": "https://arxiv.org/abs/2001.06782",
+      "use": "Prior art for conflicting-gradient projection; P6 uses a one-sided primary-priority variant with an auxiliary norm budget.",
+      "code_copied": false
+    }
+  ]
+}

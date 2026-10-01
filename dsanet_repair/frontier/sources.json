@@ -1,0 +1,71 @@
+{
+  "checked": "2026-09-24",
+  "implementation_policy": "Independent PyTorch implementations of general primitives; no external source copied or imported for N7-N11. Not paper reproductions.",
+  "sources": [
+    {
+      "title": "Interpretable Functional Koopman Learning with Non-Markovian Closure for Spatiotemporal Systems",
+      "short_name": "MERLIN",
+      "venue": "ICML 2026; title verified in official downloads list",
+      "paper": "https://openreview.net/forum?id=lquDiBCgNJ",
+      "venue_evidence": "https://icml.cc/Downloads/2026",
+      "code": "https://github.com/RobinLufdu/MERLIN",
+      "commit": "867ef5633704aa8c3a0f7d9ec5504df5a27d568f",
+      "inspected_file": "MERLIN/latent_discrete.py",
+      "license_api": "MIT",
+      "transfer": "N9 uses local ridge-fit latent dynamics and held-out transition residuals, not MERLIN's two-phase functional encoder or Mori-Zwanzig memory closure."
+    },
+    {
+      "title": "Random Controlled Differential Equations",
+      "venue": "ICLR 2026, official proceedings verified",
+      "paper": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/87ccb8379f2c9bb57d37b19b929a8506-Abstract-Conference.html",
+      "code": "https://github.com/FrancescoPiatti/RandomSigJax",
+      "commit": "7df20d81c974997633ce66e4193b3682fbf4740c",
+      "inspected_file": "src/features/RandomRDE.py",
+      "license_api": null,
+      "transfer": "N10 computes explicit local first-level displacement and antisymmetric level-two path area. It is not a random reservoir, RDE solver, full signature or kernel-limit implementation."
+    },
+    {
+      "title": "Wavelet-based Frame Selection by Detecting Semantic Boundary for Long Video Understanding",
+      "short_name": "WFS-SB",
+      "venue": "CVPR 2026; CVF day listing verified",
+      "paper": "https://arxiv.org/abs/2603.00512",
+      "venue_evidence": "https://openaccess.thecvf.com/CVPR2026?day=2026-06-06",
+      "code": "https://github.com/MAC-AutoML/WFS-SB",
+      "commit": "a424fc4528ecbe57edc93413826a2f2b8bb2c203",
+      "inspected_file": "wfs/core.py",
+      "license_api": null,
+      "transfer": "N11 retains signed undecimated Haar detail and second-order modulus envelopes; no keyframe removal, wavelet peak heuristic, MMR or video LLM."
+    },
+    {
+      "title": "MS-Temba: Multi-Scale Temporal Mamba for Understanding Long Untrimmed Videos",
+      "venue": "CVPR 2026, official CVF record verified",
+      "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Sinha_MS-Temba_Multi-Scale_Temporal_Mamba_for_Understanding_Long_Untrimmed_Videos_CVPR_2026_paper.html",
+      "code": "https://github.com/thearkaprava/MS-Temba",
+      "commit": "d42b4606d03884bfe2591d0bed1ed7a1dd01ab22",
+      "license_api": "Apache-2.0",
+      "transfer": "Motivation/overlap check for multi-scale temporal representation, not an implemented Mamba block."
+    },
+    {
+      "title": "Improving Temporal Action Segmentation via Constraint-Aware Decoding",
+      "venue": "2026 arXiv preprint; no main-conference acceptance claim",
+      "paper": "https://arxiv.org/abs/2605.10149",
+      "declared_code": "https://github.com/LUNAProject22/CAD",
+      "code_status": "GitHub API returned 404 on check date; code availability not verified",
+      "transfer": "N7 uses overlapping latent intervals learned from weak video objectives; it does not use CAD's annotated duration/transition priors or Viterbi decoding."
+    },
+    {
+      "title": "Temporally Consistent Unbalanced Optimal Transport for Unsupervised Action Segmentation",
+      "short_name": "ASOT",
+      "venue": "CVPR 2024",
+      "code": "https://github.com/mingu6/action_seg_ot",
+      "transfer": "N8 uses balanced latent capacity allocation with anchor-derived margins and feature reconstruction; it does not use ASOT pseudo-labels or Gromov-Wasserstein temporal regularization."
+    },
+    {
+      "title": "Enhancing CLIP-Based Weakly-Supervised Video Anomaly Detection via Optimal Transport",
+      "short_name": "CLIP-OT",
+      "venue": "ICASSP 2026; not represented here as CCF-A",
+      "paper": "https://ieeexplore.ieee.org/document/11464080/",
+      "transfer": "Closest-overlap warning: CLIP+OT for WSVAD already exists. N8 does not claim that pairing is new."
+    }
+  ]
+}
